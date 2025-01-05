@@ -1,12 +1,7 @@
--- Create or use the database hbnb_dev_db
+-- Create script that prepares a MySQL server for the project
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
-
--- Create or update the user hbnb_dev
-CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
-
--- Grant previleges to the user created to the database
-GRANT ALL PRIVILEGES ON `hbnb_dev_db`.* TO 'hbnb_dev'@'localhost';
-
--- GRANT SELECT privilege
-GRANT SELECT ON `performance_schema`.* TO 'hbnb_dev'@'localhost';
+CREATE USER IF NOT EXISTS hbnb_dev@localhost;
+SET PASSWORD FOR hbnb_dev@localhost = 'hbnb_dev_pwd';
+GRANT ALL PRIVILEGES ON hbnb_dev_db . * TO hbnb_dev@localhost;
+GRANT SELECT ON performance_schema . * TO hbnb_dev@localhost;
 FLUSH PRIVILEGES;
